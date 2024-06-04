@@ -8,14 +8,12 @@ public interface Enquiry_And_CbilServiceI {
 
 	Enquiry saveEnquiry(Enquiry e);
 
-
-	List<Enquiry> findAllData();
-
-	Enquiry updateEnquiry(String enquiryid, Enquiry enquiry);
-
 	Enquiry getSingleEnquiry(String enquiryid);
 	
 	void deleteRecord(String enquiryid);
 
+	List<Enquiry> getAllEnquiryData();
+
+	public void UpdateRecord(Enquiry e, String enquiryid);
 
 }

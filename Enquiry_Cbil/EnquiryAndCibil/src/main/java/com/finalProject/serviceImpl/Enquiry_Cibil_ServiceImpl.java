@@ -1,8 +1,6 @@
 package com.finalProject.serviceImpl;
 
-
 import java.util.List;
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,23 +25,6 @@ public class Enquiry_Cibil_ServiceImpl implements Enquiry_And_CbilServiceI {
 	}
 
 	@Override
-
-	public List<Enquiry> findAllData() 
-	{
-	      List<Enquiry> list =er.findAll();
-		return list;
-	}
-
-	@Override
-	public Enquiry updateEnquiry(String enquiryid, Enquiry enquiry) 
-	{
-		    Enquiry update = er.save(enquiry);
-		return update ;
-	}
-
-	
-	
-
 	public Enquiry getSingleEnquiry(String enquiryid) {
 		Optional<Enquiry> opEnquiry = er.findById(enquiryid);
 		if (opEnquiry.isPresent()) {
@@ -66,5 +47,16 @@ public class Enquiry_Cibil_ServiceImpl implements Enquiry_And_CbilServiceI {
 
 	}
 
+	@Override
+	public List<Enquiry> getAllEnquiryData() {
+		
+		return er.findAll();
+	}
+
+	@Override
+	public void UpdateRecord(Enquiry e, String enquiryid) {
+		er.save(e);
+		
+	}
 
 }

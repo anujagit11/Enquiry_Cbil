@@ -18,11 +18,6 @@ import com.finalProject.service.Enquiry_And_CbilServiceI;
 
 @RestController
 public class EnquiryController {
-	
-	public void m1()
-	{
-		System.out.println("heelo");
-	}
 
 	@Autowired
 	Enquiry_And_CbilServiceI es;
@@ -33,26 +28,16 @@ public class EnquiryController {
 		return new ResponseEntity<Enquiry>(ee, HttpStatus.OK);
 	}
 
-	@GetMapping("/getAll")
-	public ResponseEntity<List<Enquiry>> getEnquiry() {
-		List<Enquiry> enquiry = es.findAllData();
-		return new ResponseEntity<List<Enquiry>>(enquiry, HttpStatus.ACCEPTED);
-
-	}
-
-	@PatchMapping("/update/{enquiryid}")
-	public ResponseEntity<Enquiry> updateData(@PathVariable String enquiryid, @RequestBody Enquiry enquiry) {
-		Enquiry ed = es.updateEnquiry(enquiryid, enquiry);
-		return new ResponseEntity<Enquiry>(ed, HttpStatus.OK);
-		
-		
-
-	}
-
 	@GetMapping("/getSingleEnquiry/{enquiryid}")
 	public ResponseEntity<Enquiry> getSingleEnquiryData(@PathVariable("enquiryid") String enquiryid) {
 		Enquiry user = es.getSingleEnquiry(enquiryid);
 		return new ResponseEntity<Enquiry>(user, HttpStatus.OK);
+	}
+
+	@GetMapping("/getAll")
+	public ResponseEntity<List<Enquiry>> getAllEnquiryData() {
+		List<Enquiry> list = es.getAllEnquiryData();
+		return new ResponseEntity<List<Enquiry>>(list, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/deleteEnquiry/{enquiryid}")
@@ -60,6 +45,13 @@ public class EnquiryController {
 		es.deleteRecord(enquiryid);
 
 		return new ResponseEntity<String>("record is deleted", HttpStatus.OK);
+	}
+
+	@PatchMapping("/update/{enquiryid}")
+	public ResponseEntity<String> updateEnquiry(@RequestBody Enquiry e, @PathVariable String enquiryid) {
+		es.UpdateRecord(e, enquiryid);
+
+		return new ResponseEntity<String>("record is Updated Successfully!", HttpStatus.OK);
 	}
 
 }
