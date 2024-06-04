@@ -42,6 +42,7 @@ public class EnquiryController {
 
 	@DeleteMapping("/deleteEnquiry/{enquiryid}")
 	public ResponseEntity<String> deleteEnquiry(@PathVariable String enquiryid) {
+		
 		es.deleteRecord(enquiryid);
 
 		return new ResponseEntity<String>("record is deleted", HttpStatus.OK);
