@@ -44,6 +44,8 @@ public class EnquiryController {
 	public ResponseEntity<Enquiry> updateData(@PathVariable String enquiryid, @RequestBody Enquiry enquiry) {
 		Enquiry ed = es.updateEnquiry(enquiryid, enquiry);
 		return new ResponseEntity<Enquiry>(ed, HttpStatus.OK);
+		
+		
 
 	}
 
