@@ -6,4 +6,6 @@ public interface Enquiry_And_CbilServiceI {
 
 	Enquiry saveEnquiry(Enquiry e);
 
+	Enquiry getSingleEnquiry(String enquiryid);
+
 }
