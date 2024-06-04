@@ -13,6 +13,8 @@ public interface Enquiry_And_CbilServiceI {
 
 	Enquiry updateEnquiry(String enquiryid, Enquiry enquiry);
 
+	Enquiry getSingleEnquiry(String enquiryid);
+	
 	void deleteRecord(String enquiryid);
 
 
