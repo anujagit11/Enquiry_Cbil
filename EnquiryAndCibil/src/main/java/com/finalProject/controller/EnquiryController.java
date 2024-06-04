@@ -21,7 +21,7 @@ public class EnquiryController {
 	
 	public void m1()
 	{
-		
+		System.out.println("heelo");
 	}
 
 	@Autowired
