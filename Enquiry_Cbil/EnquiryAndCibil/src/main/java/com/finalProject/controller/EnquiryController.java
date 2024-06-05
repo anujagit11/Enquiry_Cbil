@@ -18,6 +18,8 @@ import com.finalProject.service.Enquiry_And_CbilServiceI;
 
 @RestController
 public class EnquiryController {
+	
+	int x;
 
 	@Autowired
 	Enquiry_And_CbilServiceI es;
