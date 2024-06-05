@@ -19,7 +19,6 @@ import com.finalProject.service.Enquiry_And_CbilServiceI;
 @RestController
 public class EnquiryController {
 	
-	int x;
 
 	@Autowired
 	Enquiry_And_CbilServiceI es;
@@ -49,6 +48,15 @@ public class EnquiryController {
 
 		return new ResponseEntity<String>("record is deleted", HttpStatus.OK);
 	}
+	
+	@DeleteMapping("/DeleteAll")
+	public ResponseEntity<String> deleteAll() {
+		
+		es.deleteAll();
+		return new ResponseEntity<String>("Delete All Data Successfully!..",HttpStatus.OK);
+		
+	}
+
 
 	@PatchMapping("/update/{enquiryid}")
 	public ResponseEntity<String> updateEnquiry(@RequestBody Enquiry e, @PathVariable String enquiryid) {

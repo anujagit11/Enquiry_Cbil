@@ -16,4 +16,6 @@ public interface Enquiry_And_CbilServiceI {
 
 	public void UpdateRecord(Enquiry e, String enquiryid);
 
+	void deleteAll();
+
 }
